@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 128" role="img"
+     aria-label="Loose, unsorted goods on the left becoming an ordered grid on the right">
+  <g fill="none" stroke="#1e1e1e" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="8" y="24" width="22" height="18" rx="3" transform="rotate(-9 19 33)"/>
+    <rect x="38" y="44" width="26" height="20" rx="3" transform="rotate(7 51 54)"/>
+    <rect x="12" y="70" width="20" height="24" rx="3" transform="rotate(5 22 82)"/>
+    <rect x="42" y="88" width="24" height="16" rx="3" transform="rotate(-6 54 96)"/>
+    <path d="M84 64h28"/>
+    <path d="M104 56l8 8-8 8"/>
+    <rect x="130" y="26" width="26" height="26" rx="3"/>
+    <rect x="164" y="26" width="26" height="26" rx="3"/>
+    <rect x="130" y="60" width="26" height="26" rx="3"/>
+    <rect x="164" y="60" width="26" height="26" rx="3"/>
+  </g>
+  <g fill="none" stroke="#00a0dc" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="130" y="94" width="60" height="10" rx="3"/>
+  </g>
+</svg>

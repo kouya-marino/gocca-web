@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" role="img"
+     aria-label="A festival hamper of wrapped goods beside a lit diya">
+  <g fill="none" stroke="#1e1e1e" stroke-width="2" vector-effect="non-scaling-stroke"
+     stroke-linecap="round" stroke-linejoin="round">
+    <!-- contents, trimmed at the rim line so nothing needs an opaque fill -->
+    <path d="M105 102a13 13 0 0 1 26 0"/>
+    <path d="M138 102V80a2 2 0 0 1 2-2h26a2 2 0 0 1 2 2v22"/>
+    <path d="M180 102V86a7 7 0 0 1 7-7h1a7 7 0 0 1 7 7v16"/>
+    <!-- basket -->
+    <path d="M92 116h116l-9 50a6 6 0 0 1-6 5h-86a6 6 0 0 1-6-5z"/>
+    <rect x="84" y="102" width="132" height="14" rx="6"/>
+    <path d="M104 140h92M101 156h98"/>
+    <path d="M112 102a38 38 0 0 1 76 0"/>
+    <!-- diya -->
+    <path d="M228 158h44a22 22 0 0 1-44 0z"/>
+    <path d="M234 158h32"/>
+  </g>
+  <!-- one accent idea: the flame -->
+  <g fill="none" stroke="#00a0dc" stroke-width="2" vector-effect="non-scaling-stroke"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M250 152c6-5 7-11 3-17-1 5-4 6-6 4-3-3-1-8 3-12-11 3-16 12-13 20 1 3 6 6 13 5z"/>
+  </g>
+</svg>

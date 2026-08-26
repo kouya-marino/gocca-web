@@ -800,9 +800,9 @@ ol[class] {
   justify-content: center;
 }
 
-.hero-mark {
-  color: var(--accent);
-  opacity: 0.28;
+.hero-art-img {
+  width: 100%;
+  max-width: 400px;
 }
 
 @media (min-width: 56em) {
@@ -987,10 +987,22 @@ ol[class] {
   border-bottom: 0;
 }
 
+/* The 220px column holds the number, the icon and the diagram. */
+.svc-aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
 .svc-marker {
   display: flex;
   align-items: center;
   gap: var(--space-m);
+}
+
+.svc-diagram {
+  width: 100%;
+  max-width: 220px;
 }
 
 .svc-number {
@@ -1111,15 +1123,13 @@ ol[class] {
   object-fit: cover;
 }
 
-.cat-icon-wrap {
-  display: grid;
-  place-items: center;
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  background: var(--surface);
-  color: var(--accent-ink);
-  box-shadow: var(--shadow-sm);
+/* Illustration sitting inside the tile, with room to breathe. A real photo
+   would use .cat-image above and fill the slot edge to edge instead. */
+.cat-art {
+  width: 100%;
+  height: 100%;
+  padding: var(--space-m);
+  object-fit: contain;
 }
 
 .cat-body {
@@ -1258,11 +1268,49 @@ ol[class] {
   background: var(--surface-alt);
 }
 
+/* Initials over a watermark of the mark itself, so a member without a photo
+   still reads as a designed tile rather than a gap waiting to be filled. */
 .portrait--monogram {
   display: grid;
   place-items: center;
   border: 1px solid var(--line);
-  background: linear-gradient(150deg, var(--accent-wash), var(--surface-alt));
+  background:
+    url('/assets/illustrations/mark-watermark.svg') center / 62% no-repeat,
+    linear-gradient(150deg, var(--accent-wash), var(--surface-alt));
+}
+
+/* The open role. Dashed rather than solid so it reads as a vacancy, not a
+   person we forgot to name. */
+.team-vacancy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-s);
+  width: 100%;
+  aspect-ratio: 7 / 9;
+  padding: var(--space-l);
+  border: 2px dashed var(--line);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  color: var(--ink-faint);
+}
+
+.team-vacancy-mark {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 2px dashed var(--line);
+  border-radius: 50%;
+  font-size: var(--step-2);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--accent-ink);
+}
+
+.team-vacancy-text {
+  font-size: var(--step--1);
 }
 
 .portrait-initials {
@@ -1340,6 +1388,12 @@ ol[class] {
 .nf {
   padding-block: var(--space-xl);
   text-align: center;
+}
+
+.ty-mark {
+  width: 108px;
+  margin-inline: auto;
+  margin-bottom: var(--space-m);
 }
 
 .nf-code {

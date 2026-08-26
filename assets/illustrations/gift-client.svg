@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" role="img"
+     aria-label="A ribboned gift box beside a handwritten card">
+  <g fill="none" stroke="#1e1e1e" stroke-width="2" vector-effect="non-scaling-stroke"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M56 170h188"/>
+    <rect x="80" y="106" width="104" height="64" rx="4"/>
+    <rect x="72" y="90" width="120" height="18" rx="4"/>
+    <path d="M132 90s-3-20-15-20a10 10 0 0 0 0 20z"/>
+    <path d="M132 90s3-20 15-20a10 10 0 0 1 0 20z"/>
+    <path d="M210 128l38-14 14 40-38 14z"/>
+    <path d="M222 130l18-6M227 143l18-7"/>
+  </g>
+  <g fill="none" stroke="#00a0dc" stroke-width="2" vector-effect="non-scaling-stroke"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M132 108v62"/>
+  </g>
+</svg>
