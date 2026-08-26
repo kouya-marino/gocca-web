@@ -178,13 +178,20 @@ dig +short gocca.in
 ### About the CNAME file
 
 `public/CNAME` in this repo contains `www.gocca.in`, and Vite copies it into
-`dist/` on every build. That file is what stops GitHub forgetting your domain on
-the next deploy.
+`dist/` on every build.
 
-When you type the domain into Settings, GitHub may also commit its own `CNAME`
-file to the repo root. Harmless — but delete it if it appears and keep
-`public/CNAME` as the single source of truth. If you ever change domains, edit
-`public/CNAME`, not just the Settings box.
+To be clear about what does what: **the Settings box in Step 4 is what actually
+sets the custom domain.** Verified on this repo — the first deploy shipped a
+CNAME file in the artifact and the domain stayed unset until it was entered in
+Settings. The file's job is the deploy *after* that: an Actions-published site
+whose artifact has no CNAME file can have its custom domain silently dropped, so
+keeping the file is what makes the setting stick.
+
+So you need both. Set it in Settings once; leave `public/CNAME` in place forever.
+
+If you ever change domains, edit `public/CNAME` **and** the Settings box. GitHub
+may also commit its own `CNAME` to the repo root when you save — harmless, but
+delete it and keep `public/CNAME` as the single source of truth.
 
 ---
 
