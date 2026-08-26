@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Trailing slashes are required: GitHub Pages 301s /services to /services/,
+     so a slashless entry here would point every crawler at a redirect. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.gocca.in/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.gocca.in/corporate-gifting/</loc><priority>0.9</priority></url>
+  <url><loc>https://www.gocca.in/services/</loc><priority>0.8</priority></url>
+  <url><loc>https://www.gocca.in/work-with-us/</loc><priority>0.8</priority></url>
+  <url><loc>https://www.gocca.in/team/</loc><priority>0.6</priority></url>
+</urlset>

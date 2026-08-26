@@ -13,16 +13,17 @@ This guide assumes the GitHub account **`kouya-marino`** and the repo
 
 ## Where this got to — resume here
 
-**Status as of 27 Aug 2026: steps 1 and 2 are done. The next action is yours, at GoDaddy.**
+**Status as of 27 Aug 2026: the site is built and committed. Next is one GitHub setting, then the GoDaddy DNS change.**
 
 | # | Step | State |
 |---|---|---|
-| 1 | Repo pushed, Pages on, Actions deploying | ✅ done — green, serving at `kouya-marino.github.io/gocca-web` |
-| 2 | **GoDaddy DNS for gocca.in** | ⏳ **not started — do this next** |
-| 3 | Enter `www.gocca.in` in Settings → Pages | blocked on step 2 |
-| 4 | Tick Enforce HTTPS | blocked on step 3 |
-| 5 | Forward `gocca.co.in` | can be done any time |
-| 6 | Verify all four addresses | last |
+| 1 | Repo pushed, site built | ✅ done — plain HTML, no build step |
+| 2 | Pages source → branch `main`, folder `/ (root)` | ⏳ **do this next — one setting** |
+| 3 | **GoDaddy DNS for gocca.in** | ⏳ **then this — the only real work left** |
+| 4 | Enter `www.gocca.in` in Settings → Pages | blocked on step 3 |
+| 5 | Tick Enforce HTTPS | blocked on step 4 |
+| 6 | Forward `gocca.co.in` | can be done any time |
+| 7 | Verify all four addresses | last |
 
 ### What the DNS actually looks like today
 
@@ -64,22 +65,29 @@ Delete the five dead cPanel CNAMEs (`cpanel`, `webdisk`, `webdisk.admin`, `whm`,
 
 ## First, the question you asked: do I host only the build folder?
 
-**No — and you don't have to choose one.** GitHub Pages can publish from three
-different sources:
+**There is no build folder any more.** The site is plain HTML and CSS, so the
+repo *is* the website — the file you edit is the file that gets served.
 
-| Source | What gets served | Fits this project? |
+GitHub Pages can publish from three places:
+
+| Source | What gets served | This site |
 |---|---|---|
-| Branch root (`main` → `/`) | Every file in the repo, as-is | ✗ — would serve `package.json` and `src/`, not the built site |
-| Branch subfolder (`main` → `/docs`) | Whatever you commit into `docs/` | ✗ — means committing build output on every change |
-| **GitHub Actions** | Whatever the workflow uploads | **✓ — this is what we use** |
+| **Branch root (`main` → `/`)** | Every file in the repo, as-is | **✓ — this is what we use** |
+| Branch subfolder (`/docs`) | Whatever is in `docs/` | ✗ — no reason to nest it |
+| GitHub Actions | Whatever a workflow uploads | ✗ — there is nothing to build |
 
-This repo uses **GitHub Actions**. On every push to `main`,
-`.github/workflows/deploy.yml` installs dependencies, runs the route check, runs
-`npm run build`, and publishes the resulting `dist/` folder.
+So the answer that used to be "the build folder is what gets hosted, but you
+never commit it" is now simply: **you commit the site, and that is what is
+served.** No workflow, no artifact, no `dist/`.
 
-So: the build folder *is* what gets hosted — but you never commit it. `dist/` is
-in `.gitignore` and gets rebuilt fresh on GitHub's servers each time. You only
-ever commit source.
+Two consequences worth knowing:
+
+- `README.md` and this file are served too, at `/README.md` and
+  `/DOMAIN-SETUP.md`. Harmless — the repo is public anyway — but do not put
+  anything in this folder you would not want fetched.
+- `.nojekyll` (an empty file at the root) is **required**. Branch-served Pages
+  runs Jekyll by default, which would try to process the Markdown and silently
+  drops any file whose name starts with an underscore.
 
 ---
 
@@ -109,20 +117,21 @@ git push -u origin main
 ## Step 2 — Turn on GitHub Pages
 
 1. Repo → **Settings** → **Pages** (left sidebar).
-2. Under **Build and deployment → Source**, choose **GitHub Actions**.
+2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
+3. Branch: **`main`**, folder: **`/ (root)`**. Save.
 
-Don't pick a branch. Selecting "GitHub Actions" is what tells Pages to listen for
-the workflow already in this repo.
+Publishing starts within a minute or two. There is no Actions run to watch — the
+result appears under the repo's **Deployments** in the right-hand sidebar of the
+repo home page.
 
-Go to the **Actions** tab. You should see a *Deploy to GitHub Pages* run — wait
-for the green tick, about a minute.
+> If the source currently says **GitHub Actions**, change it. That was for the
+> React version, which had a build step. The workflow file has been deleted.
 
-> **Before the domain is attached, the site will look broken** at
-> `kouya-marino.github.io/gocca-web/`. That is expected: `vite.config.js` sets
-> `base: '/'` because the real home is `www.gocca.in`, not a `/gocca-web/`
-> subpath. It renders correctly the moment the domain is wired up. To preview at
-> the github.io URL first, temporarily set `base` to `'/gocca-web/'` — and
-> remember to change it back.
+Once it is published the site is live at
+`https://kouya-marino.github.io/gocca-web/`. Every page will be there, but the
+styling will be missing until the domain is attached — the pages link to
+`/assets/styles.css`, which resolves at the domain root, not under a
+`/gocca-web/` subpath. That is expected and fixes itself at Step 4.
 
 ---
 
@@ -232,21 +241,15 @@ dig +short gocca.in
 
 ### About the CNAME file
 
-`public/CNAME` in this repo contains `www.gocca.in`, and Vite copies it into
-`dist/` on every build.
+`CNAME` sits at the repo root and contains exactly `www.gocca.in`.
 
-To be clear about what does what: **the Settings box in Step 4 is what actually
-sets the custom domain.** Verified on this repo — the first deploy shipped a
-CNAME file in the artifact and the domain stayed unset until it was entered in
-Settings. The file's job is the deploy *after* that: an Actions-published site
-whose artifact has no CNAME file can have its custom domain silently dropped, so
-keeping the file is what makes the setting stick.
+With branch-root publishing this is simpler than it used to be: **the file *is*
+the setting.** When you type the domain into Settings, GitHub commits a root
+`CNAME` itself — and since one is already there saying the same thing, nothing
+changes. The old warning about an Actions artifact silently losing the custom
+domain no longer applies, because there is no artifact.
 
-So you need both. Set it in Settings once; leave `public/CNAME` in place forever.
-
-If you ever change domains, edit `public/CNAME` **and** the Settings box. GitHub
-may also commit its own `CNAME` to the repo root when you save — harmless, but
-delete it and keep `public/CNAME` as the single source of truth.
+If you ever change domains, edit `CNAME` and the Settings box together.
 
 ---
 
@@ -295,23 +298,32 @@ Once propagation completes, all four should land on the site over HTTPS:
 - `https://www.gocca.in` ✓ — the real thing
 - `https://gocca.in` ✓ — redirects to www
 - `https://gocca.co.in` ✓ — 301 to www.gocca.in
-- `https://www.gocca.in/team` ✓ — **press refresh on this one specifically.** It
-  exercises the `404.html` fallback described below.
+- `https://www.gocca.in/team/` ✓ — check it returns a real 200, not a 404:
+  ```bash
+  curl -sI https://www.gocca.in/team/   | head -1   # expect 200
+  curl -sI https://www.gocca.in/team    | head -1   # expect 301 to /team/
+  curl -sI https://www.gocca.in/nope/   | head -1   # expect 404
+  ```
 
 ---
 
-## How deep links survive on a static host
+## Why the URLs work
 
-GitHub Pages has no server-side routing. Ask it for `/team` and it looks for a
-file called `team`, doesn't find one, and serves `404.html`.
+Each page is a real file in a real folder: `services/index.html` is served at
+`/services/`. Nothing clever is involved, and `/team/` returns a genuine HTTP
+**200**.
 
-So `vite.config.js` includes a small plugin that copies `index.html` to
-`404.html` at the end of every build. Pages serves that "404", the React app
-boots, React Router reads the URL and renders the Team page. The visitor sees the
-right page; the only cost is that the HTTP status is technically 404.
+This is a change from the React version, which had no files for those paths.
+It relied on GitHub serving `404.html` and letting JavaScript work out which page
+you meant — so `https://www.gocca.in/team` returned **HTTP 404** to Google while
+showing the right page to a human. That is fixed.
 
-This is why `404.html` must not be removed from `dist/`, and why the
-`spaFallback` plugin in `vite.config.js` shouldn't be deleted.
+`404.html` is now what its name says: a real not-found page, served with a real
+404 status, for URLs that genuinely do not exist.
+
+One detail: GitHub Pages 301-redirects `/services` to `/services/`. That is why
+every canonical tag, `og:url` and sitemap entry carries the trailing slash — a
+slashless one would advertise a URL that redirects.
 
 ---
 
@@ -326,9 +338,10 @@ GitHub UI.
 The four apex A records are missing or incomplete. The redirect only happens when
 the apex points at GitHub *and* the custom domain is set to the www subdomain.
 
-**Site loads but every stylesheet and script 404s**
-`base` in `vite.config.js` doesn't match how the site is served. It should be
-`'/'` for a custom domain.
+**Site loads but unstyled**
+You are looking at the `github.io` URL before the domain is attached. The pages
+link to `/assets/styles.css`, which resolves at the domain root but not under a
+`/gocca-web/` subpath. It fixes itself at Step 4.
 
 **Domain reverts to blank after a deploy**
 `public/CNAME` is missing or wrong. It must read exactly `www.gocca.in` — no
@@ -339,13 +352,16 @@ The certificate is still being issued; up to an hour is normal. If it's still
 greyed out after 24 hours, remove the custom domain, save, re-add it, save. That
 re-triggers provisioning.
 
-**`/team` works when clicked but 404s on refresh**
-`404.html` is missing from the deployed output. Check the `spaFallback` plugin is
-still in `vite.config.js` and that the Actions run succeeded.
+**A page 404s**
+The folder or its `index.html` is missing. Run `./check.sh` — it verifies every
+internal link points at a file that actually exists.
 
 **Changes pushed but the site is unchanged**
-Check the **Actions** tab for a red run, then hard-refresh — Pages sets a
-ten-minute cache on HTML.
+Hard-refresh — Pages caches HTML for about ten minutes. Check the repo's
+**Deployments** panel to confirm the push actually published.
+
+**Markdown files render as web pages, or a file has vanished**
+`.nojekyll` is missing from the repo root.
 
 ---
 

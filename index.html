@@ -1,40 +1,277 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Gocca Global Services — The one stop portal for all your needs</title>
-    <meta
-      name="description"
-      content="Gocca Global Services — corporate gifting and goods exchange strategy. Festival hampers, branded merchandise and employee gifting, plus configuration, statistics and connectivity for brands and individuals."
-    />
+  <!-- Marks the document as scripted BEFORE the stylesheet paints. The nav is
+       visible by default and only collapses behind the hamburger once this has
+       run, so if nav.js never loads the links stay reachable instead of leaving
+       a dead button — which is exactly how the 2020 site broke on phones. -->
+  <script>document.documentElement.className = 'js'</script>
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/logo-mark.svg" />
-    <meta name="theme-color" content="#00a0dc" />
+  <title>Gocca Global Services — The one stop portal for all your needs</title>
+  <meta name="description" content="Gocca Global Services — corporate gifting and goods exchange strategy. Festival hampers, branded merchandise and employee gifting, plus configuration, statistics and connectivity for brands and individuals." />
+  <link rel="canonical" href="https://www.gocca.in/" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Gocca Global Services" />
-    <meta property="og:title" content="Gocca Global Services" />
-    <meta
-      property="og:description"
-      content="Corporate gifting and goods exchange strategy. Intuitive, inclusive and innovative — the one stop portal for all your needs."
-    />
-    <meta property="og:url" content="https://www.gocca.in/" />
-    <meta name="twitter:card" content="summary" />
+  <!-- Social preview. These must be in the served HTML: WhatsApp, LinkedIn and
+       every other link scraper reads the raw file and never runs JavaScript. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gocca Global Services" />
+  <meta property="og:title" content="Gocca Global Services — The one stop portal for all your needs" />
+  <meta property="og:description" content="Gocca Global Services — corporate gifting and goods exchange strategy. Festival hampers, branded merchandise and employee gifting, plus configuration, statistics and connectivity for brands and individuals." />
+  <meta property="og:url" content="https://www.gocca.in/" />
+  <meta property="og:image" content="https://www.gocca.in/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Gocca Global Services" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="canonical" href="https://www.gocca.in/" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#00a0dc" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================ SHARED HEADER =============================
+     Identical in all seven pages except for the current-page marker on one
+     nav link, which differs per page.
+
+     Changed something here? Paste it into the other six:
+       index.html   services/index.html   corporate-gifting/index.html
+       team/index.html   work-with-us/index.html   thank-you/index.html
+       404.html
+     Then run ./check.sh — it verifies every page agrees.
+     ====================================================================== -->
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href="/" aria-label="Gocca Global Services — home">
+      <span class="logo">
+        <svg class="logo-mark" width="34" height="34" viewBox="0 0 100 100"
+        fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"
+        aria-hidden="true" focusable="false">
+        <circle cx="50" cy="50" r="38" />
+        <path d="M50 12 A38 38 0 0 0 50 88" />
+        <path d="M50 17 A33 33 0 0 0 50 83" />
+        <path d="M50 22 A28 28 0 0 0 50 78" />
+        <path d="M50 27 A23 23 0 0 0 31 66" />
+        <path d="M50 27 V73" />
+        <path d="M27 50 H88" />
+      </svg>
+        <span class="logo-words">
+          <span class="logo-word">gocca</span>
+          <span class="logo-sub">Global Services</span>
+        </span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="visually-hidden nav-toggle-label">Open menu</span>
+      <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <ul class="nav-list">
+          <li><a class="nav-link" href="/" aria-current="page">Home</a></li>
+          <li><a class="nav-link" href="/services/">Services</a></li>
+          <li><a class="nav-link" href="/corporate-gifting/">Corporate Gifting</a></li>
+          <li><a class="nav-link" href="/team/">Team</a></li>
+          <li><a class="nav-link" href="/work-with-us/">Work With Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main" id="main">
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <p class="hero-strapline">Intuitive, Inclusive and Innovative</p>
+        <h1 class="hero-title">The one stop portal for all your needs</h1>
+        <p class="hero-lead">Creating innovative strategies for the goods exchange scenario. We are hireable by all kinds of brands and individuals: we make difficult things easy, but never take anything lightly.</p>
+        <div class="hero-actions">
+          <a class="btn" href="/services/">See what we do</a>
+          <a class="btn btn--secondary" href="/work-with-us/">Work with us</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg class="hero-mark" width="340" height="340" viewBox="0 0 100 100"
+        fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"
+        aria-hidden="true" focusable="false">
+        <circle cx="50" cy="50" r="38" />
+        <path d="M50 12 A38 38 0 0 0 50 88" />
+        <path d="M50 17 A33 33 0 0 0 50 83" />
+        <path d="M50 22 A28 28 0 0 0 50 78" />
+        <path d="M50 27 A23 23 0 0 0 31 66" />
+        <path d="M50 27 V73" />
+        <path d="M27 50 H88" />
+      </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">We excel at</p>
+        <h2 class="section-title">Three things, done properly</h2>
+        <p class="section-lead">Whatever the brief, the work usually comes back to these.</p>
+      </div>
+      <ul class="svc-cards">
+        <li class="svc-card">
+          <span class="svc-card-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h10M18 8h2M4 16h4M12 16h8"/><circle cx="16" cy="8" r="2.4"/><circle cx="10" cy="16" r="2.4"/></svg></span>
+          <h3 class="svc-card-title">Configurations</h3>
+          <p class="svc-card-body">Goods to be configured and organized as per customer taste.</p>
+        </li>
+        <li class="svc-card">
+          <span class="svc-card-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M8 20v-6M13 20V8M18 20v-9"/></svg></span>
+          <h3 class="svc-card-title">Statistics</h3>
+          <p class="svc-card-body">Track the distribution and growth of your business.</p>
+        </li>
+        <li class="svc-card">
+          <span class="svc-card-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="2.4"/><circle cx="5" cy="18" r="2.4"/><circle cx="19" cy="18" r="2.4"/><path d="M12 7.4v4.2M12 11.6 6.4 16.2M12 11.6l5.6 4.6"/></svg></span>
+          <h3 class="svc-card-title">Connectivity</h3>
+          <p class="svc-card-body">Find out new pathways to grow and expand your business along with its dependents.</p>
+        </li>
+      </ul>
+      <p class="more-link"><a href="/services/">More on how we work →</a></p>
+
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What we hold to</p>
+        <h2 class="section-title">Our milestone characters</h2>
+        <p class="section-lead">Four habits we would rather be judged on than any tagline.</p>
+      </div>
+      <ul class="values">
+        <li class="value">
+          <h3 class="value-title">Reliability</h3>
+          <p class="value-body">We would rather commit to less and deliver all of it. Dates we give are dates we have already thought through.</p>
+        </li>
+        <li class="value">
+          <h3 class="value-title">Innovation</h3>
+          <p class="value-body">New for its own sake is just churn. We reach for a different approach when the familiar one is genuinely costing you something.</p>
+        </li>
+        <li class="value">
+          <h3 class="value-title">Support</h3>
+          <p class="value-body">The work does not end at handover. You keep the same people to talk to once things are running.</p>
+        </li>
+        <li class="value">
+          <h3 class="value-title">Transparency</h3>
+          <p class="value-body">You see the same picture we do, including the parts that are not going well. No surprises at the end of a month.</p>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+  <section class="section section--deep">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <p class="eyebrow">Testimonials</p>
+        <h2 class="section-title">What people tell us</h2>
+      </div>
+      <ul class="quotes">
+        <li>
+          <figure class="quote">
+            <blockquote class="quote-text">“Beautiful and excellent service! Very reliable team of members!”</blockquote>
+            <figcaption class="quote-by">
+              <span class="quote-name">Harish S.A.</span>
+              <span class="quote-context">First user of Gocca</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="quote">
+            <blockquote class="quote-text">“They took the time to understand how we actually work before suggesting anything. That is rarer than it should be.”</blockquote>
+            <figcaption class="quote-by">
+              <span class="quote-name">Harshit Arora</span>
+              <span class="quote-context">Second user of Gocca</span>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+      <p class="mission">We hope to provide digital strategies for 200 brands worldwide.</p>
+
+    </div>
+  </section>
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="cta">
+        <h2 class="cta-title">Let’s have a coffee</h2>
+        <p class="cta-body">Whether you want to hire us or join us, the conversation starts the same way.</p>
+        <a class="btn" href="/work-with-us/">Get in touch</a>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- ============================ SHARED FOOTER =============================
+     Identical in all seven pages. Same rule as the header: change it here,
+     paste into the other six, run ./check.sh.
+     ====================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="footer-brand-link" href="/" aria-label="Gocca Global Services — home">
+          <span class="logo">
+            <svg class="logo-mark" width="30" height="30" viewBox="0 0 100 100"
+        fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"
+        aria-hidden="true" focusable="false">
+        <circle cx="50" cy="50" r="38" />
+        <path d="M50 12 A38 38 0 0 0 50 88" />
+        <path d="M50 17 A33 33 0 0 0 50 83" />
+        <path d="M50 22 A28 28 0 0 0 50 78" />
+        <path d="M50 27 A23 23 0 0 0 31 66" />
+        <path d="M50 27 V73" />
+        <path d="M27 50 H88" />
+      </svg>
+            <span class="logo-words"><span class="logo-word">gocca</span></span>
+          </span>
+        </a>
+        <p class="footer-tagline">The one stop portal for all your needs</p>
+      </div>
+
+      <nav aria-label="Footer">
+        <h2 class="footer-col-title">Site</h2>
+        <ul class="footer-list">
+            <li><a class="footer-link" href="/">Home</a></li>
+            <li><a class="footer-link" href="/services/">Services</a></li>
+            <li><a class="footer-link" href="/corporate-gifting/">Corporate Gifting</a></li>
+            <li><a class="footer-link" href="/team/">Team</a></li>
+            <li><a class="footer-link" href="/work-with-us/">Work With Us</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="footer-col-title">Contact</h2>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="mailto:info@gocca.in">info@gocca.in</a></li>
+          <li><a class="footer-link" href="https://wa.me/91XXXXXXXXXX">WhatsApp us</a></li>
+          <li class="footer-muted">Indirapuram, Ghaziabad, Uttar Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© Gocca Global Services</p>
+      <p class="footer-muted">Built to be easy to change.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/nav.js"></script>
+</body>
 </html>

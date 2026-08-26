@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Marks the document as scripted BEFORE the stylesheet paints. The nav is
+       visible by default and only collapses behind the hamburger once this has
+       run, so if nav.js never loads the links stay reachable instead of leaving
+       a dead button — which is exactly how the 2020 site broke on phones. -->
+  <script>document.documentElement.className = 'js'</script>
+
+  <title>Thank you — Gocca Global Services</title>
+  <meta name="description" content="Your message has reached Gocca Global Services." />
+  <meta name="robots" content="noindex" />
+
+  <!-- Social preview. These must be in the served HTML: WhatsApp, LinkedIn and
+       every other link scraper reads the raw file and never runs JavaScript. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gocca Global Services" />
+  <meta property="og:title" content="Thank you — Gocca Global Services" />
+  <meta property="og:description" content="Your message has reached Gocca Global Services." />
+  <meta property="og:image" content="https://www.gocca.in/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Gocca Global Services" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#00a0dc" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================ SHARED HEADER =============================
+     Identical in all seven pages except for the current-page marker on one
+     nav link, which differs per page.
+
+     Changed something here? Paste it into the other six:
+       index.html   services/index.html   corporate-gifting/index.html
+       team/index.html   work-with-us/index.html   thank-you/index.html
+       404.html
+     Then run ./check.sh — it verifies every page agrees.
+     ====================================================================== -->
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href="/" aria-label="Gocca Global Services — home">
+      <span class="logo">
+        <svg class="logo-mark" width="34" height="34" viewBox="0 0 100 100"
+        fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"
+        aria-hidden="true" focusable="false">
+        <circle cx="50" cy="50" r="38" />
+        <path d="M50 12 A38 38 0 0 0 50 88" />
+        <path d="M50 17 A33 33 0 0 0 50 83" />
+        <path d="M50 22 A28 28 0 0 0 50 78" />
+        <path d="M50 27 A23 23 0 0 0 31 66" />
+        <path d="M50 27 V73" />
+        <path d="M27 50 H88" />
+      </svg>
+        <span class="logo-words">
+          <span class="logo-word">gocca</span>
+          <span class="logo-sub">Global Services</span>
+        </span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="visually-hidden nav-toggle-label">Open menu</span>
+      <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <ul class="nav-list">
+          <li><a class="nav-link" href="/">Home</a></li>
+          <li><a class="nav-link" href="/services/">Services</a></li>
+          <li><a class="nav-link" href="/corporate-gifting/">Corporate Gifting</a></li>
+          <li><a class="nav-link" href="/team/">Team</a></li>
+          <li><a class="nav-link" href="/work-with-us/">Work With Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main" id="main">
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="nf">
+        <h1 class="nf-title">Thank you — that has reached us</h1>
+        <p class="nf-body">We read everything that comes in. If we can help, you will hear back from us; if your date is too tight for what you have described, we will say so plainly rather than take it on and hope.</p>
+        <a class="btn" href="/">Back to home</a>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- ============================ SHARED FOOTER =============================
+     Identical in all seven pages. Same rule as the header: change it here,
+     paste into the other six, run ./check.sh.
+     ====================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="footer-brand-link" href="/" aria-label="Gocca Global Services — home">
+          <span class="logo">
+            <svg class="logo-mark" width="30" height="30" viewBox="0 0 100 100"
+        fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"
+        aria-hidden="true" focusable="false">
+        <circle cx="50" cy="50" r="38" />
+        <path d="M50 12 A38 38 0 0 0 50 88" />
+        <path d="M50 17 A33 33 0 0 0 50 83" />
+        <path d="M50 22 A28 28 0 0 0 50 78" />
+        <path d="M50 27 A23 23 0 0 0 31 66" />
+        <path d="M50 27 V73" />
+        <path d="M27 50 H88" />
+      </svg>
+            <span class="logo-words"><span class="logo-word">gocca</span></span>
+          </span>
+        </a>
+        <p class="footer-tagline">The one stop portal for all your needs</p>
+      </div>
+
+      <nav aria-label="Footer">
+        <h2 class="footer-col-title">Site</h2>
+        <ul class="footer-list">
+            <li><a class="footer-link" href="/">Home</a></li>
+            <li><a class="footer-link" href="/services/">Services</a></li>
+            <li><a class="footer-link" href="/corporate-gifting/">Corporate Gifting</a></li>
+            <li><a class="footer-link" href="/team/">Team</a></li>
+            <li><a class="footer-link" href="/work-with-us/">Work With Us</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="footer-col-title">Contact</h2>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="mailto:info@gocca.in">info@gocca.in</a></li>
+          <li><a class="footer-link" href="https://wa.me/91XXXXXXXXXX">WhatsApp us</a></li>
+          <li class="footer-muted">Indirapuram, Ghaziabad, Uttar Pradesh, India</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© Gocca Global Services</p>
+      <p class="footer-muted">Built to be easy to change.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/nav.js"></script>
+</body>
+</html>
