@@ -116,9 +116,15 @@ for word in 'Site owner' 'TODO' 'FIXME' 'Lorem' 'paste your' 'src/data' 'import.
   fi
 done
 grep -rq 'XXXXXXXXXX' --include='*.html' . 2>/dev/null \
-  && warn "BEFORE LAUNCH: WhatsApp number is still a placeholder — replace 91XXXXXXXXXX everywhere"
-grep -rq 'info@gocca.in' --include='*.html' . 2>/dev/null \
-  && warn "BEFORE LAUNCH: contact address is still info@gocca.in — confirm the real mailbox, then activate FormSubmit"
+  && warn "the WhatsApp number is still a placeholder"
+# A personal Gmail on a business domain is a stopgap. Nagging until it moves to a
+# mailbox on gocca.in, which is what a company placing a bulk order expects to see.
+grep -rq 'gmail\.com' --include='*.html' . 2>/dev/null \
+  && warn "TEMPORARY: contact address is a personal Gmail — move it to a mailbox on gocca.in before this gets promoted"
+# The raw address in a form action gets scraped. FormSubmit gives you an alias
+# (formsubmit.co/el/xxxxxx) once the address is activated; use it.
+grep -rq 'formsubmit\.co/[^e][^l]' --include='*.html' . 2>/dev/null \
+  && warn "FormSubmit: still posting to the raw address. Activate it, then swap in the /el/ alias so the address is not scraped from the public HTML"
 [ "$fails" = "0" ] && pass "no owner instructions or draft markers in any page"
 
 echo

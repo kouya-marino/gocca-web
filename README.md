@@ -7,23 +7,38 @@ website** — the file you edit is the file that gets served.
 
 ---
 
-## Two things to do before launch
+## Contact details are temporary
 
-`./check.sh` will keep reminding you about both.
+The site currently uses **prashantrawatmailbox@gmail.com** and WhatsApp
+**+91 91989 13454**. Both are stopgaps — `./check.sh` keeps reminding you.
 
-1. **The email address is a placeholder.** Everything says `info@gocca.in`.
-   Decide the real mailbox, then find-and-replace across the folder:
-   ```bash
-   grep -rl 'info@gocca.in' . --include='*.html' | xargs sed -i '' 's/info@gocca.in/YOUR@ADDRESS/g'
-   ```
-2. **The WhatsApp number is a placeholder** — `91XXXXXXXXXX`. Same treatment.
-   Country code then number, **no `+`, no spaces, no dashes**: `919876543210`.
+To change either, find-and-replace across the folder:
 
-Then **activate FormSubmit**, which is the step people miss: submit each form
-once yourself. FormSubmit emails that address a confirmation link. Until you
-click it, **the forms appear to work and every enquiry is silently discarded** —
-the visitor sees the thank-you page and nothing reaches you. Test both forms and
-confirm the mail arrives before telling anyone the site is live.
+```bash
+grep -rl 'prashantrawatmailbox@gmail.com' . --include='*.html' \
+  | xargs sed -i '' 's/prashantrawatmailbox@gmail.com/YOUR@ADDRESS/g'
+```
+
+WhatsApp numbers are country code then number, **no `+`, no spaces, no dashes**:
+`wa.me/919198913454`.
+
+Two reasons to move off the Gmail before the site gets promoted:
+
+1. **A personal Gmail on a business site reads as less established** to a company
+   placing a bulk gifting order. You already have email running on `gocca.in`, so
+   a mailbox there costs nothing to set up.
+2. **The address is scraped.** It sits in the public HTML in eleven places and
+   the repo is public. Expect spam.
+
+## Activate FormSubmit before telling anyone
+
+Submit each form once yourself. FormSubmit emails that address a confirmation
+link. **Until you click it the forms appear to work and every enquiry is silently
+discarded** — the visitor sees the thank-you page and nothing reaches you.
+
+Activation also gives you an alias URL (`https://formsubmit.co/el/xxxxxx`). Swap
+it into both `action=` attributes; it keeps the address out of the public HTML
+and is what point 2 above is about.
 
 ---
 
