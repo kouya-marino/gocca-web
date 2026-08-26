@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img"
+     aria-label="A sent message, received">
+  <g fill="none" stroke="#1e1e1e" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 38h64a6 6 0 0 1 6 6v34a6 6 0 0 1-6 6H16a6 6 0 0 1-6-6V44a6 6 0 0 1 6-6z"/>
+    <path d="M10 44l38 24 38-24"/>
+  </g>
+  <g fill="none" stroke="#00a0dc" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="90" cy="82" r="24" fill="#ffffff"/>
+    <path d="M79 82l8 8 15-17"/>
+  </g>
+</svg>

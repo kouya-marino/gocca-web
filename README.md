@@ -100,6 +100,7 @@ thank-you/index.html          →  /thank-you/   where both forms land
 assets/styles.css     the whole stylesheet, one file, with a table of contents
 assets/nav.js         ~25 lines. The only JavaScript on the site.
 assets/og-image.jpg   the social-share card
+assets/illustrations/ hand-drawn SVG line art — see below
 assets/favicon.svg    assets/logo-mark.svg
 apple-touch-icon.png  iOS home-screen icon — must be PNG; iOS ignores SVG
 CNAME  robots.txt  sitemap.xml  .nojekyll  check.sh
@@ -114,6 +115,26 @@ into. That duplication is the deliberate cost of having no build step.
 It is smaller than it looks: the desktop bar and the mobile menu are **one list
 styled two ways**, not two lists, so a nav change is one edit per file rather
 than three. `./check.sh` tells you when a page falls out of sync.
+
+### The illustrations
+
+`assets/illustrations/` holds ten hand-drawn SVGs, about 9KB for the lot. They
+are deliberately **illustrations, not photographs**: on a gifting site a photo
+reads as an offer, and showing a hamper you cannot actually supply is a
+conversation you do not want. Nobody mistakes a line drawing for a catalogue
+item.
+
+They follow one system, and anything added should too:
+
+- 2px stroke with `vector-effect="non-scaling-stroke"`, so the line stays the
+  same weight whatever size it renders at
+- ink `#1e1e1e` for the objects, accent `#00a0dc` for **one idea per drawing** —
+  the diya flame, the repeated artwork mark, the name tag, the ribbon
+- no fills, no gradients, no perspective, no text inside the artwork
+
+To swap one for a real photograph later: the gift cards use `.cat-art`, which
+sits inside the tile with padding. A photo should use `.cat-image` instead,
+which fills the slot edge to edge. Both classes already exist.
 
 ### Class names
 
@@ -197,9 +218,9 @@ Also confirm:
   leftover placeholder text. Correct it or remove the line.
 - **A third team member** was "Third Person / Human Resource" on the old site,
   with no real name. Not carried over — add an `<li>` when there is someone.
-- **No photographs anywhere.** Every team member is a monogram tile and every
-  gift category an icon tile. Both have a real image slot ready — see the
-  comments beside `.cat-visual` and `.portrait` in `assets/styles.css`.
+- **No photographs anywhere.** The site uses line illustrations instead, which
+  make no claim about products. Real photographs of hampers and branded items
+  you have actually delivered would still beat them — the slots are ready.
 
 ### Corporate gifting — 25 things to confirm
 

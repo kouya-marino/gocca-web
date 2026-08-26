@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 128" role="img"
+     aria-label="An existing network of partners with new connections opening outward">
+  <g fill="none" stroke="#1e1e1e" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="62" cy="64" r="16"/>
+    <circle cx="24" cy="24" r="9"/>
+    <circle cx="24" cy="104" r="9"/>
+    <path d="M52 53 31 32M52 75l-21 21"/>
+  </g>
+  <g fill="none" stroke="#00a0dc" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="150" cy="28" r="9"/>
+    <circle cx="176" cy="70" r="9"/>
+    <circle cx="140" cy="106" r="9"/>
+    <path d="M77 58l64-24" stroke-dasharray="5 6"/>
+    <path d="M78 66l89 4" stroke-dasharray="5 6"/>
+    <path d="M74 76l58 25" stroke-dasharray="5 6"/>
+  </g>
+</svg>

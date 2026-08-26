@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" role="img"
+     aria-label="An open welcome kit box holding a bottle and a notebook, beside a lanyard badge">
+  <g fill="none" stroke="#1e1e1e" stroke-width="2" vector-effect="non-scaling-stroke"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M64 108 44 86l18-12 22 24"/>
+    <path d="M176 108l20-22-18-12-22 24"/>
+    <path d="M100 108V76a10 10 0 0 1 6-9v-9h12v9a10 10 0 0 1 6 9v32"/>
+    <rect x="132" y="70" width="30" height="38" rx="3"/>
+    <rect x="60" y="108" width="120" height="58" rx="5"/>
+    <path d="M60 126h120"/>
+    <path d="M232 62v22M256 62v22"/>
+    <rect x="222" y="84" width="44" height="60" rx="6"/>
+    <path d="M234 126h20"/>
+  </g>
+  <g fill="none" stroke="#00a0dc" stroke-width="2" vector-effect="non-scaling-stroke"
+     stroke-linecap="round" stroke-linejoin="round">
+    <rect x="86" y="136" width="42" height="20" rx="3"/>
+    <path d="M94 146h26"/>
+  </g>
+</svg>

@@ -95,7 +95,7 @@ done
 echo
 echo "Internal links"
 for f in $ALL; do
-  for href in $(grep -o 'href="/[^"#]*"' "$f" | sed 's/href="//;s/"//' | sort -u); do
+  for href in $(grep -o '\(href\|src\)="/[^"#]*"' "$f" | sed 's/.*="//;s/"//' | sort -u); do
     case "$href" in
       */) target="${href#/}index.html" ;;
       *)  target="${href#/}" ;;

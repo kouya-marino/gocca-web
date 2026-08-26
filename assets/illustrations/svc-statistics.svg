@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 128" role="img"
+     aria-label="A bar chart with a rising trend line and one measure singled out">
+  <g fill="none" stroke="#1e1e1e" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 16v92h164"/>
+    <path d="M44 108V80M74 108V64M104 108V86M164 108V50"/>
+    <path d="M18 80h8M18 50h8"/>
+  </g>
+  <g fill="none" stroke="#00a0dc" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M134 108V34"/>
+    <circle cx="134" cy="34" r="6"/>
+    <path d="M44 72l30-16 30 14 30-30 30 8"/>
+  </g>
+</svg>

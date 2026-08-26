@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" role="img"
+     aria-label="Goods being organised, measured and routed onward to a business and a gift recipient">
+  <g fill="none" stroke="#1e1e1e" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round">
+    <!-- LEFT: goods, stacked and catalogued -->
+    <rect x="20" y="150" width="62" height="46" rx="4"/>
+    <path d="M20 166h62M51 150v16"/>
+    <rect x="28" y="106" width="46" height="44" rx="4"/>
+    <path d="M28 120h46M51 106v14"/>
+    <rect x="34" y="196" width="52" height="34" rx="4"/>
+    <path d="M34 208h52"/>
+
+    <!-- MIDDLE: the routing hub, built from the logo's own geometry -->
+    <circle cx="180" cy="150" r="46"/>
+    <path d="M180 104a46 46 0 0 0 0 92"/>
+    <path d="M180 116a34 34 0 0 0 0 68"/>
+    <path d="M180 116V184M156 150h70"/>
+
+    <!-- routes in and out -->
+    <path d="M92 140h30a12 12 0 0 1 12 12v0"/>
+    <path d="M92 196h20a12 12 0 0 0 12-12v-6"/>
+    <path d="M226 132h22a14 14 0 0 0 14-14v-6"/>
+    <path d="M226 172h22a14 14 0 0 1 14 14"/>
+
+    <!-- RIGHT TOP: measured growth -->
+    <rect x="264" y="52" width="76" height="60" rx="5"/>
+    <path d="M276 98v-16M292 98v-28M308 98v-20M324 98v-34"/>
+
+    <!-- RIGHT BOTTOM: delivered as a gift -->
+    <rect x="268" y="198" width="70" height="48" rx="4"/>
+    <rect x="262" y="186" width="82" height="14" rx="4"/>
+    <path d="M303 186s-2-14-11-14a7 7 0 0 0 0 14z"/>
+    <path d="M303 186s2-14 11-14a7 7 0 0 1 0 14z"/>
+  </g>
+  <g fill="none" stroke="#00a0dc" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M303 200v46"/>
+    <path d="M276 82l16-14 16 8 16-20"/>
+    <circle cx="134" cy="152" r="4"/>
+    <circle cx="248" cy="152" r="4"/>
+  </g>
+</svg>
