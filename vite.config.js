@@ -10,11 +10,21 @@ import { resolve } from 'node:path'
  * app instead of GitHub's default not-found page.
  */
 function spaFallback() {
+  let outDir
+  let isSsrBuild
+
   return {
     name: 'gocca-spa-fallback',
+    configResolved(config) {
+      outDir = resolve(config.root, config.build.outDir)
+      isSsrBuild = Boolean(config.build.ssr)
+    },
     closeBundle() {
-      const out = resolve(__dirname, 'dist')
-      copyFileSync(resolve(out, 'index.html'), resolve(out, '404.html'))
+      // `npm run check` runs a second, SSR build (scripts/render-entry.jsx) that
+      // emits no index.html. Copying unconditionally throws ENOENT there on any
+      // clean checkout — which is every CI run.
+      if (isSsrBuild) return
+      copyFileSync(resolve(outDir, 'index.html'), resolve(outDir, '404.html'))
     },
   }
 }
