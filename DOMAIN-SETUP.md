@@ -11,6 +11,57 @@ This guide assumes the GitHub account **`kouya-marino`** and the repo
 
 ---
 
+## Where this got to — resume here
+
+**Status as of 27 Aug 2026: steps 1 and 2 are done. The next action is yours, at GoDaddy.**
+
+| # | Step | State |
+|---|---|---|
+| 1 | Repo pushed, Pages on, Actions deploying | ✅ done — green, serving at `kouya-marino.github.io/gocca-web` |
+| 2 | **GoDaddy DNS for gocca.in** | ⏳ **not started — do this next** |
+| 3 | Enter `www.gocca.in` in Settings → Pages | blocked on step 2 |
+| 4 | Tick Enforce HTTPS | blocked on step 3 |
+| 5 | Forward `gocca.co.in` | can be done any time |
+| 6 | Verify all four addresses | last |
+
+### What the DNS actually looks like today
+
+Checked directly against the nameservers — 18 records, and **no A records at all**, so nothing needs deleting at the apex:
+
+```
+NS     @                        ns13 / ns14.domaincontrol.com        (locked)
+SOA    @                                                             (locked)
+CNAME  www                      gocca.in.          ← EDIT THIS ONE, TTL 10800
+CNAME  cpanel                   gocca.in.          ← dead cPanel leftover
+CNAME  webdisk                  gocca.in.          ← dead cPanel leftover
+CNAME  webdisk.admin            gocca.in.          ← dead cPanel leftover
+CNAME  whm                      gocca.in.          ← dead cPanel leftover
+CNAME  www.admin                gocca.in.          ← dead cPanel leftover
+CNAME  email                    email.secureserver.net.              ← EMAIL
+CNAME  secureserver1._domainkey s1.dkim…onsecureserver.net.          ← EMAIL (DKIM)
+CNAME  secureserver2._domainkey s2.dkim…onsecureserver.net.          ← EMAIL (DKIM)
+MX     @                        smtp.secureserver.net.       (prio 0)  ← EMAIL
+MX     @                        mailstore1.secureserver.net. (prio 10) ← EMAIL
+TXT    @                        v=spf1 include:secureserver.net -all ← EMAIL (SPF)
+TXT    @                        D6125500                             ← GoDaddy verification
+TXT    _dmarc                   v=DMARC1; p=reject; …                ← EMAIL (DMARC)
+SRV    _autodiscover._tcp.@     100 1 443 autodiscover.secureserver.net. ← EMAIL
+```
+
+### 🚨 Before touching anything
+
+`gocca.in` carries **live, fully-configured email**: MX, SPF, both DKIM keys, autodiscover, and **DMARC set to `p=reject`**.
+
+`p=reject` means receiving mail servers **discard** anything that fails authentication. Break SPF or DKIM and outbound mail stops being delivered **silently** — no bounce message, no error, nothing to alert you. Every record marked `← EMAIL` above is untouchable.
+
+Nothing in step 3 below goes near them. Step 3 only edits the `www` CNAME and adds `A` records on `@`.
+
+### Worth doing while you're in there
+
+Delete the five dead cPanel CNAMEs (`cpanel`, `webdisk`, `webdisk.admin`, `whm`, `www.admin`). They point at `gocca.in.`, which resolves to nothing today — but the moment you add the apex A records they will all start resolving to GitHub's Pages servers. A hostname pointing at GitHub Pages that no repo has claimed can be claimed by **someone else's** repo, which is a genuine subdomain-takeover route. Having `cpanel.gocca.in` serve a stranger's content is a poor outcome on a domain that also carries your mail. They serve no purpose now that the site isn't cPanel-hosted.
+
+---
+
 ## First, the question you asked: do I host only the build folder?
 
 **No — and you don't have to choose one.** GitHub Pages can publish from three
@@ -82,29 +133,33 @@ Sign in at GoDaddy → **My Products** → next to **gocca.in** click **DNS**.
 You need **both** halves below. The CNAME is what serves the site; the A records
 are what let GitHub redirect the bare domain to it.
 
-### 3a. Delete GoDaddy's parked records first
+### 3a. Nothing to delete
 
-A GoDaddy domain ships with records pointing at their own parking page, and they
-will fight with yours. Delete:
+The usual advice is to clear GoDaddy's parked A records first. **This domain has
+none** — verified against the nameservers. Skip straight to 3b.
 
-- Any **A** record with Name `@` (usually a `76.x.x.x` or "Park" address)
-- Any **CNAME** record with Name `www` pointing at `gocca.in.` or a
-  `_domainconnect` target
+Re-read the email warning in *"Where this got to"* above before you start. In
+short: DMARC is `p=reject`, so a broken SPF or DKIM record means outbound mail is
+discarded silently, with no bounce.
 
-Leave **MX** records alone if you have email on this domain — DNS changes here do
-not affect email, but deleting MX records will break it.
+### 3b. Edit the existing www CNAME — this is what serves the site
 
-### 3b. The www CNAME — this one serves the site
+There is already a `CNAME` on `www` pointing at `gocca.in.`. **Edit that record**
+— do not add a second one. DNS permits only one CNAME per name, and GoDaddy will
+reject the duplicate.
 
-| Field | Value |
-|---|---|
-| Type | CNAME |
-| Name | `www` |
-| Value | `kouya-marino.github.io` |
-| TTL | 1 hour |
+| Field | From | To |
+|---|---|---|
+| Type | CNAME | *unchanged* |
+| Name | `www` | *unchanged* |
+| Data | `gocca.in.` | `kouya-marino.github.io` |
+| TTL | 10800 seconds | **1 Hour** |
 
-Note: `kouya-marino.github.io` — **not** the repo name, no `https://`, no path,
-no trailing slash.
+`kouya-marino.github.io` — **not** the repo name, no `https://`, no path, no
+trailing slash.
+
+Change the TTL as well. At 10800 seconds any resolver that has already cached the
+old, broken value will keep serving it for up to three hours after your edit.
 
 ### 3c. Four A records at the apex — these make gocca.in redirect
 
