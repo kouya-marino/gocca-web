@@ -1,0 +1,22 @@
+.photo,
+.fallback {
+  width: 100%;
+  aspect-ratio: 7 / 9;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  background: var(--surface-alt);
+}
+
+.fallback {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  background: linear-gradient(150deg, var(--accent-wash), var(--surface-alt));
+}
+
+.initials {
+  font-size: var(--step-3);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent-ink);
+}
