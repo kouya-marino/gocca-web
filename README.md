@@ -39,9 +39,20 @@ enquiry is silently discarded** — the visitor sees the thank-you page and noth
 reaches you. There is no error anywhere; you would only find out from a customer
 asking why you never replied.
 
-Activation also gives you an alias URL (`https://formsubmit.co/el/xxxxxx`). Swap
-it into both `action=` attributes: the repo is public and the pages are crawled,
-so a plain address in the HTML gets scraped.
+Activation issues a token to use in place of the address. Both forms already
+post to it:
+
+```
+action="https://formsubmit.co/90de4102d3a77b8930192fe3dcc43e65"
+```
+
+That keeps the address out of the form markup, which matters because the repo is
+public and the pages are crawled. It is not a secret — it only routes to your
+inbox, and it is meant to sit in the HTML.
+
+If you ever change the destination address, FormSubmit issues a new token and
+this one stops working. The `mailto:` links elsewhere on the site still show the
+address in full, deliberately — visitors need to be able to see and copy it.
 
 ---
 

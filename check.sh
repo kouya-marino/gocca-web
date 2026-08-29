@@ -125,10 +125,10 @@ for addr in $(grep -rho 'mailto:[^"]*' --include='*.html' . | sed 's/mailto://' 
     *) warn "contact address $addr is not on gocca.in" ;;
   esac
 done
-# The raw address in a form action gets scraped. FormSubmit gives you an alias
-# (formsubmit.co/el/xxxxxx) once the address is activated; use it.
-grep -rq 'formsubmit\.co/[^e][^l]' --include='*.html' . 2>/dev/null \
-  && warn "FormSubmit: still posting to the raw address. Activate it, then swap in the /el/ alias so the address is not scraped from the public HTML"
+# A form action containing an @ means the raw address is in the public HTML,
+# where it gets scraped. FormSubmit issues a token to use instead.
+grep -rq 'formsubmit\.co/[^"]*@' --include='*.html' . 2>/dev/null \
+  && warn "FormSubmit: the form action still contains a raw email address — replace it with the token FormSubmit issued"
 [ "$fails" = "0" ] && pass "no owner instructions or draft markers in any page"
 
 echo
