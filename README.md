@@ -7,38 +7,41 @@ website** — the file you edit is the file that gets served.
 
 ---
 
-## Contact details are temporary
+## Contact details
 
-The site currently uses **prashantrawatmailbox@gmail.com** and WhatsApp
-**+91 91989 13454**. Both are stopgaps — `./check.sh` keeps reminding you.
+| | |
+|---|---|
+| Email | **business@gocca.in** |
+| WhatsApp | **+91 91989 13454** → `wa.me/919198913454` |
 
-To change either, find-and-replace across the folder:
+To change either, find-and-replace across the folder, then run `./check.sh`:
 
 ```bash
-grep -rl 'prashantrawatmailbox@gmail.com' . --include='*.html' \
-  | xargs sed -i '' 's/prashantrawatmailbox@gmail.com/YOUR@ADDRESS/g'
+grep -rl 'business@gocca.in' . --include='*.html' \
+  | xargs sed -i '' 's/business@gocca.in/YOUR@ADDRESS/g'
 ```
 
-WhatsApp numbers are country code then number, **no `+`, no spaces, no dashes**:
-`wa.me/919198913454`.
+WhatsApp numbers are country code then number, **no `+`, no spaces, no dashes**.
 
-Two reasons to move off the Gmail before the site gets promoted:
-
-1. **A personal Gmail on a business site reads as less established** to a company
-   placing a bulk gifting order. You already have email running on `gocca.in`, so
-   a mailbox there costs nothing to set up.
-2. **The address is scraped.** It sits in the public HTML in eleven places and
-   the repo is public. Expect spam.
+`check.sh` warns if the contact address ever stops being a `gocca.in` one — a
+personal address on a business site reads as less established to a company
+placing a bulk gifting order.
 
 ## Activate FormSubmit before telling anyone
 
-Submit each form once yourself. FormSubmit emails that address a confirmation
-link. **Until you click it the forms appear to work and every enquiry is silently
-discarded** — the visitor sees the thank-you page and nothing reaches you.
+**The mailbox has to exist first.** `business@gocca.in` needs to be a real,
+receiving mailbox on your GoDaddy email before any of this works — the domain
+having MX records is not the same as that particular address existing.
+
+Then submit each form once yourself. FormSubmit emails that address a
+confirmation link. **Until you click it the forms appear to work and every
+enquiry is silently discarded** — the visitor sees the thank-you page and nothing
+reaches you. There is no error anywhere; you would only find out from a customer
+asking why you never replied.
 
 Activation also gives you an alias URL (`https://formsubmit.co/el/xxxxxx`). Swap
-it into both `action=` attributes; it keeps the address out of the public HTML
-and is what point 2 above is about.
+it into both `action=` attributes: the repo is public and the pages are crawled,
+so a plain address in the HTML gets scraped.
 
 ---
 
