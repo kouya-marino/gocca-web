@@ -866,6 +866,16 @@ ol[class] {
   .svc-cards {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  /* The home page shows two business lines rather than three services. */
+  .svc-cards--two {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.svc-card .more-link {
+  margin-top: var(--space-m);
+  font-size: var(--step--1);
 }
 
 .values {
