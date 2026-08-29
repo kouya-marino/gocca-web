@@ -236,46 +236,56 @@ Also confirm:
   make no claim about products. Real photographs of hampers and branded items
   you have actually delivered would still beat them — the slots are ready.
 
-### Corporate gifting — 25 things to confirm
+### Corporate gifting — what is confirmed, and what is not
 
-That page is written to be **true but incomplete**. It states no price, no
-minimum order quantity, no lead time, no delivery coverage, no client name and no
-order volume, because none are confirmed. Some sentences are hedged on purpose:
-Approval says a sample "**where one is warranted**"; Delivery says only "one
-address **or many**". Replace the hedges once you know the real answers, not
-before.
+The page is written to be **true but incomplete**. It states nothing that has not
+been confirmed, and where something is unknown it is hedged on purpose rather
+than guessed.
 
 **Nothing on that page promises anything you have not confirmed. Keep it that
 way — an unmet gifting promise costs a client, not just a correction.**
 
-**Answered and now stated on the page** (29 Aug 2026): minimum order **50
-pieces** · lead time **2–3 weeks from artwork approval**, longer in festival
-season · delivery **pan-India, to one address or to individual doorsteps** ·
-samples **physical on larger runs, digital proof otherwise**. These appear as a
-strip under the category grid and in the Approval and Delivery steps. If any
-changes, change it in both places.
+#### Confirmed and stated on the page
 
-*Still open, and still hedged on the page* — pricing, or say plainly it is
-quote-only · a one-line replacement policy for damaged or short deliveries ·
-whether food hampers are offered at all *(all edible examples were removed
-pending FSSAI and sourcing answers)*.
+| | |
+|---|---|
+| Minimum order | 50 pieces |
+| Lead time | 2–3 weeks from artwork approval, longer in festival season |
+| Delivery | Pan-India, to one address or to individual doorsteps |
+| Samples | Physical on larger runs, digital proof otherwise |
+| GST | Registered, invoice issued |
+| Food hampers | Yes — sweets and dry fruit |
+| Branding | Screen/UV print, embroidery, laser engraving, custom packaging and printed cards |
+| Pricing | Quote per order, no price list |
 
-*Commercial:* payment terms · whether purchase orders and credit terms are
-accepted · **GST registration and invoicing** — an Indian corporate buyer cannot
-raise a PO without it, and this belongs in visible copy, not only here.
+The first four plus GST appear in the facts strip under the category grid. The
+rest are in the category blurbs and the process steps. **If any of these change,
+change them in both places** — `./check.sh` cannot catch a stale fact.
 
-*Artwork:* revision rounds included · accepted file formats · which customisation
-methods genuinely exist (screen print, UV, embroidery, engraving, foil) · which
-packaging and personalisation options exist · personalisation limits.
+#### Still open, and still hedged
 
-*Operations:* the last date to place festival orders, and who updates it each
-year · whether kit specs and artwork are actually kept for repeat orders ·
-whether a post-delivery debrief happens.
+- **A replacement policy** for damaged or short deliveries. The Packing step says
+  only that a shortfall should be found by us rather than by you — it promises no
+  replacement, and must not until you decide what you will stand behind.
+- **Payment terms** — advance percentage, balance on dispatch, whether purchase
+  orders and credit terms are accepted.
+- **Artwork specifics** — revision rounds included before charges, accepted file
+  formats, personalisation limits (characters, logo colours).
+- **Festival cut-off dates** — the last date to place Diwali and New Year orders,
+  and who updates it each year.
+- **Whether kit specs and artwork are kept** for repeat orders. The employee
+  gifting blurb is written around this being possible, not promised.
+- **Food sourcing detail** — shelf life and FSSAI handling now that edibles are
+  on the page. Worth having an answer ready; a procurement team will ask.
 
-*Proof:* photographs of past hampers and branded items — the page has no proof of
-work at all, and gifting is a visual sell · a catalogue or lookbook · any figure
-you will stand behind, and **leave it out rather than estimate** · whether client
-names or logos may be shown, with written permission from each.
+#### Proof of work — the real gap
+
+- **Photographs** of hampers and branded items you have actually delivered. The
+  page uses illustrations, which are honest but claim nothing.
+- A catalogue or lookbook, if one exists.
+- Any figure you will stand behind — orders fulfilled, companies served, years
+  doing this. **Leave them out rather than estimate.**
+- Whether client names or logos may be shown, with written permission from each.
 
 ---
 

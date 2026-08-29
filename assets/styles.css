@@ -1198,8 +1198,14 @@ ol[class] {
 
 @media (min-width: 46em) {
   .facts {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-l) var(--space-xl);
+  }
+}
+
+@media (min-width: 68em) {
+  .facts {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
