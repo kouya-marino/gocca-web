@@ -248,11 +248,15 @@ before.
 **Nothing on that page promises anything you have not confirmed. Keep it that
 way — an unmet gifting promise costs a client, not just a correction.**
 
-*Before the page is finished* — the seven a buyer asks in their first email:
-minimum order quantity · lead times in working days, quoted from artwork approval
-not from enquiry · pricing, or say plainly it is quote-only · delivery coverage,
-and whether you ship to individual home addresses · whether samples are available
-and chargeable · a one-line replacement policy for damaged or short deliveries ·
+**Answered and now stated on the page** (29 Aug 2026): minimum order **50
+pieces** · lead time **2–3 weeks from artwork approval**, longer in festival
+season · delivery **pan-India, to one address or to individual doorsteps** ·
+samples **physical on larger runs, digital proof otherwise**. These appear as a
+strip under the category grid and in the Approval and Delivery steps. If any
+changes, change it in both places.
+
+*Still open, and still hedged on the page* — pricing, or say plainly it is
+quote-only · a one-line replacement policy for damaged or short deliveries ·
 whether food hampers are offered at all *(all edible examples were removed
 pending FSSAI and sourcing answers)*.
 
