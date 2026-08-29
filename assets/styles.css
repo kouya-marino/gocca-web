@@ -505,6 +505,12 @@ ol[class] {
   text-decoration: underline;
 }
 
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
 .footer-muted {
   color: #9aa4b0;
 }
