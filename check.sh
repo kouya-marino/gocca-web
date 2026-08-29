@@ -55,7 +55,8 @@ for f in $ALL; do
   # --- head tags that must appear exactly once ---
   for tag in '<title>' 'name="description"' 'property="og:title"' \
              'property="og:description"' 'property="og:image"' \
-             'property="og:type"' 'property="og:site_name"' 'name="twitter:card"'; do
+             'property="og:type"' 'property="og:site_name"' 'name="twitter:card"' \
+             'name="google-site-verification"'; do
     n=$(count "$tag" "$f")
     [ "$n" = "1" ] || { fail "$f: '$tag' appears $n times, expected 1"; ok=0; }
   done
