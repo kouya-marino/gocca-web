@@ -218,6 +218,10 @@ bio; Harish S.A.'s testimonial; the "200 brands worldwide" line.
 
 | Where | What |
 |---|---|
+| `services/index.html` | **All six recruitment services.** Names come from the specialties Gocca publishes on LinkedIn; every description is mine. Read them — this is now the main business and the copy is unverified. |
+
+| Where | What |
+|---|---|
 | `services/index.html` | The longer paragraph under each of the three services |
 | `index.html` | All four value descriptions, and the name *Transparency* for what the old site left as "Fourth Character" |
 | `team/index.html` | Prashant Rawat's bio |
@@ -286,6 +290,32 @@ change them in both places** — `./check.sh` cannot catch a stale fact.
 - Any figure you will stand behind — orders fulfilled, companies served, years
   doing this. **Leave them out rather than estimate.**
 - Whether client names or logos may be shown, with written permission from each.
+
+---
+
+## What the business actually is
+
+The site now says what every public source says: **recruitment and HR is the
+main business**, with corporate gifting as a second line.
+
+That alignment matters beyond accuracy. LinkedIn, the MCA registry and half a
+dozen registry-scraper sites all describe Gocca as *"a human resource management
+outfit"* offering *"comprehensive recruitment solutions"*. Until this change the
+site said goods exchange and gifting instead — and Google, cross-referencing
+those signals, reported the homepage as **"Crawled – currently not indexed"**.
+A site that contradicts every other source about what it is gives a search engine
+no reason to trust it.
+
+`index.html` carries Organization structured data naming the legal entity,
+founding year, contact details and the LinkedIn page as `sameAs`. Keep it
+accurate — wrong structured data is worse than none.
+
+**The address was wrong and is now New Delhi.** The 2020 site said
+*"Uttharakhant, Ahimsakhant, Indirapuram"*, which read as placeholder text, and I
+replaced it with "Indirapuram, Ghaziabad" — an invention. LinkedIn says New Delhi
+110019; the MCA registry says Uttam Nagar, New Delhi. Neither says Ghaziabad. The
+site now says "New Delhi, India" and the structured data gives no street address,
+because those two sources disagree on it. **Give me the real one.**
 
 ---
 
