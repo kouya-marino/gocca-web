@@ -117,10 +117,14 @@ for word in 'Site owner' 'TODO' 'FIXME' 'Lorem' 'paste your' 'src/data' 'import.
 done
 grep -rq 'XXXXXXXXXX' --include='*.html' . 2>/dev/null \
   && warn "the WhatsApp number is still a placeholder"
-# A personal Gmail on a business domain is a stopgap. Nagging until it moves to a
-# mailbox on gocca.in, which is what a company placing a bulk order expects to see.
-grep -rq 'gmail\.com' --include='*.html' . 2>/dev/null \
-  && warn "TEMPORARY: contact address is a personal Gmail — move it to a mailbox on gocca.in before this gets promoted"
+# The contact address should be on the business domain, not a personal account.
+# This catches a regression back to a free mail provider.
+for addr in $(grep -rho 'mailto:[^"]*' --include='*.html' . | sed 's/mailto://' | sort -u); do
+  case "$addr" in
+    *@gocca.in) ;;
+    *) warn "contact address $addr is not on gocca.in" ;;
+  esac
+done
 # The raw address in a form action gets scraped. FormSubmit gives you an alias
 # (formsubmit.co/el/xxxxxx) once the address is activated; use it.
 grep -rq 'formsubmit\.co/[^e][^l]' --include='*.html' . 2>/dev/null \
